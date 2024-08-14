@@ -31,7 +31,7 @@ class RegisterController extends GetxController {
             FirebaseAuth.instance.currentUser!.sendEmailVerification();
             Get.offAll(const VerifiedEmailScreen());
           } on FirebaseAuthException catch (e) {
-            switch (e.code) {
+            switch (e.message) {
               case 'email-already-in-use':
                 return showToast(text: 'The account already exists for that email.', state: ToastState.ERROR);
               case 'weak-password':

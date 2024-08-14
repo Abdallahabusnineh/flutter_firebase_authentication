@@ -7,12 +7,12 @@ void showToast({
 }) =>
     Fluttertoast.showToast(
         msg: text,
+        webBgColor: state == ToastState.ERROR? 'red' :state == ToastState.SUCCESS? 'green': 'amber',
         toastLength: Toast.LENGTH_SHORT,
         gravity: ToastGravity.BOTTOM,
         webPosition: 'center',
         timeInSecForIosWeb: 3,
         backgroundColor: chooseToastColor(state),
-
         textColor: Colors.white,
         fontSize: 16.0);
 
