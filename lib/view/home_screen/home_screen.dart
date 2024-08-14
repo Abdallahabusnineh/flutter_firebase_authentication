@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_firebase_authentication/controller/auth_controller/auth_controller.dart';
+import 'package:flutter_firebase_authentication/controller/auth_controller/signout_controller/sign_out.dart';
 import 'package:get/get.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -12,9 +12,9 @@ class HomeScreen extends StatelessWidget {
       body: Center(
         child: Container(
           color: Colors.white,
-          child: GetBuilder<AuthController>(
-            init: AuthController(),
-            builder: (controller) {
+          child: GetBuilder<SignOutController>(
+            init: SignOutController(),
+            builder: (SignOutController controller) {
               return ElevatedButton(onPressed: (){
                 controller.signOut();
               }, child: Text('Sign Out'),
