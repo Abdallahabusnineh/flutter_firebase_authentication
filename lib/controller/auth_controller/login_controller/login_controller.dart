@@ -111,7 +111,6 @@ class LoginController extends GetxController {
 
 checkEmailIsRegisteredInFirebase(String email) async {
  // print('abdallah ${emailControllerLogin.text.trim()}');
-  /////
 
   try {
     List<String> signInMethods = await FirebaseAuth.instance.fetchSignInMethodsForEmail(email);
