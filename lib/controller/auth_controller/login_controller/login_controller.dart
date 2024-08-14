@@ -121,7 +121,7 @@ checkEmailIsRegisteredInFirebase(String email) async {
     return false;
   }
 
-
+//
 }
   forgotPassword() async {
     bool emailExists = await checkEmailIsRegisteredInFirebase(emailControllerLogin.text);
