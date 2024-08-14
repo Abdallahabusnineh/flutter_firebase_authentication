@@ -120,8 +120,13 @@ class AuthController extends GetxController {
   }
   forgotPassword() async {
     try{
-      await FirebaseAuth.instance.sendPasswordResetEmail(email: emailControllerLogin.text);
-      showToast(text: 'check your email, we sent you a link to reset your password', state: ToastState.SUCCESS);
+      if(FirebaseAuth.instance.currentUser!.emailVerified) {
+        await FirebaseAuth.instance
+            .sendPasswordResetEmail(email: emailControllerLogin.text);
+        showToast(
+            text: 'check your email, we sent you a link to reset your password',
+            state: ToastState.SUCCESS);
+      }
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         showToast(text: 'No user found for that email.', state: ToastState.ERROR);
